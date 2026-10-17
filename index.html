@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shojib — Creative Web Developer & Engineer</title>
+  <meta name="description"
+    content="Portfolio of Shojib, a Creative Web Developer focused on building clean, intuitive interfaces and high-performance digital experiences.">
+
+  <!-- Modern Geometric Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=2.5">
+</head>
+
+<body>
+
+  <!-- preview link -  http://localhost:3000/ -->
+  <!-- Ultra-minimal loader that fades away smoothly -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-text" id="progress-text">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Fixed High-DPI Canvas for Scroll Animation -->
+  <canvas id="scroll-canvas"></canvas>
+
+  <!-- Main Website Content Wrapper -->
+  <div class="site-wrapper">
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-container">
+        <a href="#hero" class="brand-logo" id="brand-logo">
+          Folioblox<span class="logo-dot">.</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#hero" class="nav-item active">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#projects" class="nav-item">Projects</a>
+        </nav>
+
+        <a href="#contact" class="btn-pill-white" id="header-cta-btn">
+          <span>Get in touch</span>
+          <div class="arrow-circle orange">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section (Transparent with Canvas Animation Running in Background) -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop-tint"></div>
+
+      <div class="hero-container">
+        <!-- Main Top Row: Left Large Heading & Right Statement -->
+        <div class="hero-main-grid">
+          <div class="hero-left">
+            <span class="hero-eyebrow">Hey, I'm a</span>
+            <h1 class="hero-title">
+              Creative<br>Developer
+            </h1>
+          </div>
+
+          <div class="hero-right">
+            <h2 class="hero-statement">Great code should<br>feel invisible.</h2>
+            <p class="hero-subtext">
+              From architecture to micro-interactions, I build high-performance web applications that connect and
+              convert.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hero Bottom Row: Numbered Capabilities -->
+        <div class="hero-capabilities-grid">
+          <div class="capability-item">
+            <span class="cap-num">#01</span>
+            <span class="cap-title">Frontend Architecture</span>
+          </div>
+          <div class="capability-item">
+            <span class="cap-num">#02</span>
+            <span class="cap-title">Full-Stack Development</span>
+          </div>
+          <div class="capability-item">
+            <span class="cap-num">#03</span>
+            <span class="cap-title">3D & Interactive Web</span>
+          </div>
+          <div class="capability-item">
+            <span class="cap-num">#04</span>
+            <span class="cap-title">Creative Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands Strip Container with Sleek Rounded Inset -->
+    <section class="brands-section" id="brands">
+      <div class="brands-container">
+        <span class="brands-label">Trusted by Brands I've Helped Shape</span>
+
+        <div class="brands-logos">
+          <!-- Supa Blox -->
+          <div class="brand-item">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+            <span class="brand-name">Supa Blox</span>
+          </div>
+
+          <!-- Hype Blox -->
+          <div class="brand-item">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 4h12l-5 8 5 8H6l5-8-5-8z" />
+            </svg>
+            <span class="brand-name">Hype Blox</span>
+          </div>
+
+          <!-- Frame Blox -->
+          <div class="brand-item">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3a9 9 0 0 0 0 18V3z" />
+              <path d="M12 3a9 9 0 0 1 0 18V3z" fill-opacity="0.3" />
+            </svg>
+            <span class="brand-name">Frame Blox</span>
+          </div>
+
+          <!-- Ultra Blox -->
+          <div class="brand-item">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="8" cy="12" r="5" />
+              <circle cx="16" cy="12" r="5" fill-opacity="0.4" />
+            </svg>
+            <span class="brand-name">Ultra Blox</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solid Dark Showcase Section ("Behind the Designs" / Projects) -->
+    <section class="showcase-section" id="about">
+      <div class="showcase-container">
+
+        <!-- Header Info Row -->
+        <div class="showcase-header-grid">
+          <div class="showcase-header-left">
+            <span class="section-tag">Behind the Code</span>
+            <h2 class="showcase-main-title">
+              Shaping<br>Experiences That<br>Make Life Simpler
+            </h2>
+          </div>
+
+          <div class="showcase-header-right">
+            <p class="showcase-lead">
+              I'm a full-stack developer focused on building clean, intuitive interfaces that solve real-world problems.
+            </p>
+
+            <div class="showcase-action-group">
+              <span class="action-subtext">Let's Build Something Meaningful Together</span>
+              <a href="#contact" class="btn-pill-orange" id="showcase-cta-btn">
+                <span>Get in touch</span>
+                <div class="arrow-circle white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF5E1E" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Project Cards Grid (Exact matching editorial images) -->
+        <div class="projects-grid" id="projects">
+          <!-- Card 1: Puffer Jacket -->
+          <article class="project-card" id="project-card-1">
+            <div class="card-image-wrap">
+              <img src="assets/project-jacket.jpg" alt="Aura Outerwear Techwear Experience" class="card-img"
+                loading="lazy">
+              <div class="card-overlay">
+                <span class="card-category">E-Commerce & 3D</span>
+                <h3 class="card-title">Aura Outerwear</h3>
+                <span class="card-link-text">Explore Project &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Headphones Studio -->
+          <article class="project-card" id="project-card-2">
+            <div class="card-image-wrap">
+              <img src="assets/project-headphones.jpg" alt="Sonic Studio Web Audio Application" class="card-img"
+                loading="lazy">
+              <div class="card-overlay">
+                <span class="card-category">Web Audio API & UI</span>
+                <h3 class="card-title">Sonic Soundspace</h3>
+                <span class="card-link-text">Explore Project &rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Cosmetics Bottle -->
+          <article class="project-card" id="project-card-3">
+            <div class="card-image-wrap">
+              <img src="assets/project-bottle.jpg" alt="Aura Botanicals Skincare Identity" class="card-img"
+                loading="lazy">
+              <div class="card-overlay">
+                <span class="card-category">Brand Platform & WebGL</span>
+                <h3 class="card-title">Botanical Rituals</h3>
+                <span class="card-link-text">Explore Project &rarr;</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div>
+            <h3 class="footer-heading">Ready to start a project?</h3>
+            <p class="footer-sub">Open for freelance opportunities & engineering roles.</p>
+          </div>
+          <a href="mailto:hello@example.com" class="btn-pill-orange">
+            <span>Contact Me</span>
+            <div class="arrow-circle white">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF5E1E" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Folioblox. Built with smooth scroll animation.</p>
+          <div class="footer-socials">
+            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter / X</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js?v=2.5"></script>
+</body>
+
+</html>
