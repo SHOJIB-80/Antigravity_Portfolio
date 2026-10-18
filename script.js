@@ -210,19 +210,26 @@
 
   function updateActiveNav() {
     let currentId = '';
-    const scrollPos = window.scrollY + 200;
+    const scrollPos = window.scrollY + 220;
 
     sections.forEach(section => {
       const top = section.offsetTop;
       const height = section.offsetHeight;
       if (scrollPos >= top && scrollPos < top + height) {
-        currentId = section.getAttribute('id');
+        const id = section.getAttribute('id');
+        if (id === 'brands') {
+          currentId = 'hero';
+        } else {
+          currentId = id;
+        }
       }
     });
 
-    navItems.forEach(item => {
-      item.classList.toggle('active', item.getAttribute('href') === `#${currentId}`);
-    });
+    if (currentId) {
+      navItems.forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === `#${currentId}`);
+      });
+    }
   }
 
   // Event Listeners

@@ -16,6 +16,10 @@
   --accent-orange: #FF5E1E;
   --accent-orange-hover: #ff753e;
   --accent-glow: rgba(255, 94, 30, 0.35);
+  --accent-purple: #8B5CF6;
+  --accent-purple-light: #A78BFA;
+  --accent-purple-glow: rgba(139, 92, 246, 0.35);
+  --accent-purple-border: rgba(167, 139, 250, 0.55);
   --border-subtle: rgba(255, 255, 255, 0.08);
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --radius-pill: 9999px;
@@ -431,6 +435,346 @@ body {
 }
 
 /* ==========================================================================
+   About Section (Transparent with Canvas Animation Running in Background)
+   ========================================================================== */
+.about-section {
+  position: relative;
+  z-index: 10;
+  background-color: transparent !important;
+  background: transparent !important;
+  padding: 100px 36px 120px;
+  min-height: 100vh;
+}
+
+.about-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 86px;
+  background: transparent !important;
+}
+
+/* 1. Top Story Grid: "About Me" & Pixel Art Mascot */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: center;
+  gap: 50px;
+  background: transparent !important;
+}
+
+.about-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-heading {
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.9);
+  margin-bottom: 6px;
+}
+
+.about-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 680px;
+}
+
+.about-paragraphs p {
+  font-size: clamp(1.02rem, 1.4vw, 1.15rem);
+  line-height: 1.72;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+.about-paragraphs p:first-child {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.about-mascot-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pixel-mascot-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatMascot 5s ease-in-out infinite;
+  filter: drop-shadow(0 16px 36px rgba(139, 92, 246, 0.3));
+}
+
+.pixel-cat-art {
+  width: 100%;
+  height: auto;
+  max-width: 380px;
+  display: block;
+}
+
+/* Pixel Cat SVG animations */
+.pixel-cat-svg .sparkle-plus {
+  animation: twinkleCharm 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.pixel-cat-svg .sparkle-ring {
+  animation: pulseCharmRing 3.2s ease-in-out infinite 0.4s;
+  transform-origin: center;
+}
+
+.pixel-cat-svg .sparkle-star {
+  animation: twinkleCharm 2.8s ease-in-out infinite 0.8s;
+  transform-origin: center;
+}
+
+/* 2. Subsection: Skills & Technologies */
+.about-skills-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-subheading {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.85);
+}
+
+.skills-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  background: transparent !important;
+}
+
+.skill-card {
+  position: relative;
+  background-color: rgba(14, 14, 18, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55), 0 0 24px rgba(139, 92, 246, 0.22);
+}
+
+.skill-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-card-category {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+.skill-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  color: #ffffff;
+  background-color: rgba(139, 92, 246, 0.12);
+  border: 1.5px solid var(--accent-purple-border);
+  box-shadow: inset 0 0 8px rgba(139, 92, 246, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  background-color: rgba(139, 92, 246, 0.28);
+  border-color: #C084FC;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+  color: #ffffff;
+}
+
+/* 3. Subsection: Experience Timeline */
+.about-experience-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: stretch;
+  gap: 28px;
+  position: relative;
+}
+
+.timeline-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 58px;
+}
+
+.timeline-year-node {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.timeline-item:hover .timeline-year-node {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.7);
+}
+
+.timeline-stem {
+  width: 2px;
+  flex: 1;
+  min-height: 44px;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.75) 0%, rgba(139, 92, 246, 0.25) 100%);
+  margin: 10px 0;
+  border-radius: 2px;
+}
+
+.timeline-card {
+  flex: 1;
+  background-color: rgba(14, 14, 18, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 26px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.18);
+}
+
+.timeline-role {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-purple-light);
+  margin-top: 4px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.timeline-desc {
+  font-size: 0.94rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+}
+
+/* Micro-animations */
+@keyframes floatMascot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes twinkleCharm {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes pulseCharmRing {
+  0%, 100% {
+    opacity: 0.6;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+}
+
+/* ==========================================================================
    Showcase Section ("Behind the Designs" / Projects) - Transparent
    ========================================================================== */
 .showcase-section {
@@ -686,6 +1030,23 @@ body {
     gap: 30px;
   }
 
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-mascot-col {
+    order: -1;
+  }
+
+  .pixel-mascot-wrap {
+    max-width: 320px;
+  }
+
+  .skills-cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .showcase-header-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -725,6 +1086,49 @@ body {
 
   .brands-logos {
     gap: 24px;
+  }
+
+  .about-section {
+    padding: 70px 20px 70px;
+  }
+
+  .about-container {
+    gap: 60px;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .about-mascot-col {
+    order: -1;
+  }
+
+  .pixel-mascot-wrap {
+    max-width: 260px;
+  }
+
+  .skills-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    gap: 16px;
+  }
+
+  .timeline-badge-wrap {
+    width: 48px;
+  }
+
+  .timeline-year-node {
+    width: 48px;
+    height: 48px;
+    font-size: 0.8rem;
+  }
+
+  .timeline-card {
+    padding: 20px 22px;
   }
 
   .showcase-section {
