@@ -1,128 +1,271 @@
 # Antigravity_Portfolio
 
-A polished, single-page portfolio website showcasing a creative web developer's work, visual identity, and interactive scroll-driven animation.
+A static portfolio website for Shojib, presenting work, experience, and contact information through a polished single-page design and scroll-driven visual storytelling.
 
 ## Overview
 
-This project is a static, responsive portfolio site built with plain HTML, CSS and JavaScript. The site pairs a glassmorphic design system with a high‑fidelity scroll-driven canvas animation (frame-sequence playback) to create an immersive hero experience. A tiny Node static server is included for local preview.
+Antigravity_Portfolio is a front-end portfolio website built with plain HTML, CSS, and JavaScript. The project combines a glassmorphic interface with a fixed full-screen canvas that updates as the user scrolls, creating a cinematic motion-driven presentation for portfolio content.
+
+The site is structured as a multi-page portfolio experience with separate landing, about, projects, and contact pages, while sharing a common design system and JavaScript behavior. It is designed to run as a static site with no build step or dependency installation.
 
 ## Features
 
-- Single-page portfolio layout with sections: Hero, Brands, About, Projects, Contact, Footer.
-- High-DPI canvas driven scroll animation: a preloaded sequence of frames maps scroll position to animation frames.
-- Ultra-minimal loading screen with progress indicator while frames and assets preload.
-- Smooth anchor navigation and active navigation highlighting based on scroll position.
-- Glassmorphic project and skill cards with hover interactions and micro-animations (CSS-only).
-- Static Node-based development server (server.js) for local preview with sensible MIME types and cache behavior for development.
+- Multi-page portfolio structure: Home, About, Projects, and Contact
+- Full-viewport canvas animation driven by scroll position and a preloaded JPG frame sequence
+- Minimal loading overlay with progress feedback while frames load
+- Responsive navigation with desktop links and mobile drawer menu
+- Active section highlighting based on the current page
+- Project filtering and modal detail view on the projects page
+- Contact form interaction and email-copy functionality
+- Static local preview server using Node.js core modules
+- GitHub Pages-ready deployment for a static portfolio site
 
 ## Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| HTML (index.html) | Page structure and SVG artwork |
-| CSS (style.css) | Full design system, layout, responsive styles and animations |
-| JavaScript (script.js) | Canvas frame-sequence loader, scroll → frame mapping, UI behaviors |
-| Node (built-in http) | Minimal static file server (server.js) for local preview |
-| Images (JPG, SVG) | Visual assets (project thumbnails, pixel mascot SVG, frame sequence) |
+| HTML | Page structure across `index.html`, `about.html`, `projects.html`, and `contact.html` |
+| CSS | Visual design system, responsive layout, glass effects, typography, animations, and page styling |
+| JavaScript | Scroll-driven animation, canvas rendering, navigation behavior, project filtering, modal logic, and contact interactions |
+| Node.js | Local development server in `server.js` |
+| JPG / SVG assets | Portfolio imagery, frame sequence, and brand illustrations |
 
-## Project structure
+## Project Structure
 
 ```text
 Antigravity_Portfolio/
-├── assets/                      # Project images and SVG (pixel-cat.svg, project-*.jpg)
-├── ezgif-8b5ebe47f4e9a94c-jpg/  # Frame sequence directory used by the scroll canvas
-├── index.html                    # Single-page site markup (hero, about, projects, footer)
-├── style.css                     # Complete design system and component styles
-├── script.js                     # Canvas frame loader, scroll mapping, UI interactions
-├── server.js                     # Minimal static server for local preview (node server.js)
-└── README.md                     # This file
+├── about.html
+├── assets/
+│   ├── me.png
+│   ├── pixel-cat.svg
+│   ├── project-chrome.jpg
+│   ├── project-fabric.jpg
+│   ├── project-headphones.jpg
+│   ├── project-jacket.jpg
+│   ├── project-player.jpg
+│   └── project-saas.jpg
+├── contact.html
+├── ezgif-8b5ebe47f4e9a94c-jpg/
+│   └── ezgif-frame-001.jpg ... ezgif-frame-240.jpg
+├── index.html
+├── projects.html
+├── script.js
+├── server.js
+├── style.css
+└── README.md
 ```
 
-Important files and roles:
-- index.html — contains the page sections, inline SVG mascot, references to the frame folder, and a comment noting the local preview URL.
-- style.css — design tokens, layout, card components, animations, loader and responsive rules.
-- script.js — controls preloading of image frames, renders frames to a full-screen fixed canvas, implements smooth anchor navigation and active nav highlighting. Key constants: TOTAL_FRAMES = 240, frame folder name `ezgif-8b5ebe47f4e9a94c-jpg`.
-- server.js — small development HTTP server using Node core modules; serves files with correct MIME types and sets no-cache for `.html`, `.css`, `.js` for development.
+### Important files
 
-## How the system fits together
+- `index.html` — landing page with hero section, featured projects, brand strip, and footer
+- `about.html` — personal story, principles, and skills overview
+- `projects.html` — services, portfolio highlights, filtering UI, and project modal
+- `contact.html` — contact form, direct email actions, and social links
+- `style.css` — design tokens, typography, layouts, responsiveness, and animations
+- `script.js` — canvas frame preloading, scroll synchronization, navbar behavior, modal logic, and contact interactions
+- `server.js` — static asset server for local preview
+- `assets/` — visual media used in the portfolio
+- `ezgif-8b5ebe47f4e9a94c-jpg/` — scroll animation frame sequence
 
-User browser → Loads index.html, style.css, script.js → script.js preloads a sequence of JPG frames located under the repository folder `ezgif-8b5ebe47f4e9a94c-jpg/` (TOTAL_FRAMES = 240) → frames are drawn onto the fixed, high-DPI <canvas id="scroll-canvas"> → scroll position is interpolated (LERP) to the appropriate frame index, producing a smooth scroll-tied animation. Assets (project thumbnails, pixel-cat.svg) are loaded from the `assets/` folder. server.js can serve the site locally for development.
+## Architecture
 
-## How to run (local preview)
+The application is a client-side static website without a backend or database.
 
-No build tools or package.json are required. The project is static and can be served by any static host. For local development using the included Node server:
+```text
+User/browser
+   |
+   v
+Static HTML pages
+   |
+   v
+CSS design system
+   |
+   v
+JavaScript behavior
+   |
+   v
+Canvas frame animation + DOM interaction
+```
+
+The design uses a shared `style.css` and `script.js` across pages. Each HTML page defines its own section structure, while `script.js` initializes shared UI logic such as:
+
+- canvas resizing and animation
+- scroll progress updates
+- page-specific navigation highlighting
+- mobile drawer interaction
+- project filtering
+- modal display
+- contact form success state
+
+The animated background is powered by a sequence of 240 JPG frames stored in `ezgif-8b5ebe47f4e9a94c-jpg/`. `script.js` preloads the frames and maps the current scroll progress to the appropriate frame index.
+
+## Prerequisites
+
+This project does not require a framework or package manager.
+
+Required:
+
+- Node.js
+- A browser such as Chrome, Edge, Firefox, or Safari
+
+Optional:
+
+- Git, for cloning the repository
+- A static hosting platform such as GitHub Pages or Netlify
+
+## Installation and Setup
 
 1. Clone the repository:
-   git clone https://github.com/SHOJIB-80/Antigravity_Portfolio.git
-2. Change directory:
-   cd Antigravity_Portfolio
-3. Start the local server (Node is required):
-   node server.js
-4. Open the site in your browser:
-   http://localhost:3000/
 
-Notes:
-- index.html contains a comment referencing the preview link `http://localhost:3000/`.
-- The included Node server binds to port 3000 (see the PORT constant in server.js). The server uses only built-in Node modules — no npm install step is required.
-- The project is also hosted via GitHub Pages:
-  https://shojib-80.github.io/Antigravity_Portfolio/
+```bash
+git clone https://github.com/SHOJIB-80/Antigravity_Portfolio.git
+```
+
+2. Change into the project directory:
+
+```bash
+cd Antigravity_Portfolio
+```
+
+3. Start the local preview server:
+
+```bash
+node server.js
+```
+
+4. Open the site in the browser:
+
+```text
+http://localhost:3000/
+```
 
 ## Configuration
 
-- Frame sequence: script.js expects the frames under the folder `ezgif-8b5ebe47f4e9a94c-jpg/` at the repository root with filenames `ezgif-frame-001.jpg` … `ezgif-frame-240.jpg`. TOTAL_FRAMES is defined at the top of script.js (currently 240).
-- server.js sets a static PORT constant to 3000. To change the port edit the `PORT` value in server.js and restart the server.
-- server.js sets `Cache-Control: no-cache, no-store, must-revalidate` for `.html`, `.css` and `.js` to ensure immediate refresh during development; other assets are served with `public, max-age=86400`.
+The project uses a small static server configured in `server.js`.
 
-## Database / API
+Key behavior:
 
-- This project does not include a backend database or REST API. server.js is a minimal static file server used only for local preview.
+- `PORT = 3000`
+- root directory is the repository directory
+- file types are mapped to MIME types in `MIME_TYPES`
+- HTML, CSS, and JS responses use `Cache-Control: no-cache, no-store, must-revalidate`
+- other static assets use a one-day cache
 
-## Authentication & Authorization
+The animation sequence is configured in `script.js`:
 
-- No authentication or authorization mechanism is present in the repository.
+- `TOTAL_FRAMES = 240`
+- `FOLDER_NAME = 'ezgif-8b5ebe47f4e9a94c-jpg'`
+- `FRAME_PREFIX = 'ezgif-frame-'`
+- `EXTENSION = '.jpg'`
 
-## Screenshots / Visual assets
+## Running the Application
 
-The repository contains visual assets used on the site and a pixel mascot SVG:
+Use the included Node server for local development:
 
-- assets/pixel-cat.svg
-- assets/project-bottle.jpg
-- assets/project-headphones.jpg
-- assets/project-jacket.jpg
+```bash
+node server.js
+```
 
-Example (rendered on GitHub as image references):
+The server listens on:
+
+```text
+http://localhost:3000/
+```
+
+This project is static and does not include a production build system, backend server, or package scripts.
+
+## Application Usage
+
+The website is structured to guide visitors through a standard portfolio flow:
+
+1. Open the home page to see the brand statement and featured work.
+2. Navigate to `about.html` to read the personal story and design philosophy.
+3. Open `projects.html` to browse work categories and inspect detailed project cards.
+4. Use the modal on the projects page to view more information about each project.
+5. Navigate to `contact.html` to send a message or copy the email address.
+
+The contact page includes:
+
+- a message form
+- email shortcut
+- project inquiry options
+- social links
+- response timing information
+
+## API Documentation
+
+This project does not expose a backend API or REST service. There is no database layer, auth system, or server-side application logic beyond the static file server in `server.js`.
+
+## Authentication and Authorization
+
+No authentication or authorization system is implemented in the repository. There are no login routes, session handlers, protected pages, or user accounts.
+
+## Screenshots and Demonstrations
+
+This repository includes static visual assets that are used in the portfolio UI, including:
+
+- `assets/pixel-cat.svg`
+- `assets/project-fabric.jpg`
+- `assets/project-saas.jpg`
+- `assets/project-player.jpg`
+- `assets/project-chrome.jpg`
+- `assets/project-jacket.jpg`
+- `assets/project-headphones.jpg`
+
+Example image references:
+
+```markdown
 ![Pixel mascot](assets/pixel-cat.svg)
-![Project example](assets/project-bottle.jpg)
+![Project image](assets/project-fabric.jpg)
+```
 
-(These files are included in the assets/ directory; they are used by the project’s project cards and About section.)
+## Testing and Quality Checks
 
-## Testing
+There are no automated tests, lint scripts, build scripts, or package configuration in the repository. No test suite was provided, and no runtime verification command was configured beyond the local static server.
 
-- There are no test suites or automated tests in this repository.
+## Deployment
 
-## Known limitations
+The project is configured for static hosting and is published via GitHub Pages:
 
-- The frame sequence approach can be asset-heavy — ensure the entire frame folder is present when running locally (script.js expects 240 frames by default).
-- server.js is a minimal development server and is not hardened for production use (it allows CORS via '*' and performs no security hardening).
-- To change the server port you must edit server.js — it does not read environment variables.
-- The site is a static single-page app; there is no server-side rendering, API layer, or backend persistence.
+```text
+https://shojib-80.github.io/Antigravity_Portfolio/
+```
 
-## Security considerations
+Local preview:
 
-- No secrets, environment variables, or credentials are stored in the repository.
-- The included server is for local development only. Do not use server.js as-is for production hosting without adding proper security, logging, and configuration.
-- CORS is set to '*' in server.js for local development convenience.
+```text
+http://localhost:3000/
+```
 
-## License
+The repository does not include a production deployment pipeline, environment configuration, or server-side deployment tooling.
 
-No license file is present in the repository. For licensing or contact details, see the project owner profile:
-https://github.com/SHOJIB-80
+## Known Limitations
+
+- The scroll animation depends on a complete frame folder being present in the repository.
+- The site is static and does not include a backend, database, CMS, or API.
+- Contact form submission is front-end-only and does not send data to a live server.
+- The local server is suitable for development and preview, not production hardening.
+- The project does not read environment variables or support multiple deployment environments.
+
+## Security Considerations
+
+This project does not process secrets, credentials, or sensitive server configuration. No authentication tokens, database credentials, private keys, or production secrets are stored in the repository.
+
+The included `server.js` is a local preview server and is not intended as a hardened production web server. It allows cross-origin access for development convenience and does not implement security controls expected for public production deployment.
+
+## License and Authorship
+
+Copyright (c) 2026 Shojib. All rights reserved.
+
+This project is the intellectual property of Shojib. The code, assets, design, and content in this repository may not be copied, redistributed, modified, or used commercially without explicit written permission from the author.
 
 ## Author
 
-Shojib (GitHub: SHOJIB-80)
+Shojib
 
-## Live preview
+GitHub: https://github.com/SHOJIB-80
 
-- Local preview (included comment in index.html): http://localhost:3000/
-- Live (GitHub Pages): https://shojib-80.github.io/Antigravity_Portfolio/
+## Live Preview
+
+- Local preview: http://localhost:3000/
+- GitHub Pages: https://shojib-80.github.io/Antigravity_Portfolio/
