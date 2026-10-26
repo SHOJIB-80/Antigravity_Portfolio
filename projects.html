@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Projects &amp; Portfolio — Shojib | Software Developer &amp; UX Designer</title>
+  <meta name="description"
+    content="Explore recent works, quality services, and core engineering skills by Shojib — Software Developer & UX Designer.">
+
+  <!-- Modern Geometric Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=3.0">
+</head>
+
+<body class="page-projects">
+
+  <!-- Ultra-minimal loader that fades away smoothly -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-text" id="progress-text">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Fixed High-DPI Canvas for 3D Scroll Animation -->
+  <canvas id="scroll-canvas"></canvas>
+
+  <!-- Main Website Content Wrapper (Fully transparent to let 3D canvas shine through) -->
+  <div class="site-wrapper">
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-container">
+        <a href="index.html" class="brand-logo" id="brand-logo">
+          Folioblox<span class="logo-dot">.</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href="about.html" class="nav-item">About</a>
+          <a href="projects.html" class="nav-item active">Projects</a>
+          <a href="contact.html" class="nav-item">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="contact.html" class="btn-pill-purple" id="header-cta-btn">
+            <span>Hire Me</span>
+            <div class="arrow-circle purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="about.html" class="mobile-nav-item">About</a>
+        <a href="projects.html" class="mobile-nav-item active">Projects</a>
+        <a href="contact.html" class="mobile-nav-item">Contact</a>
+      </div>
+      <a href="contact.html" class="btn-pill-purple mobile-cta">
+        <span>Hire Me</span>
+        <div class="arrow-circle purple">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Section 1: Developer Hero Header (Matches reference image top section) -->
+    <section class="project-hero-section" id="project-hero">
+      <div class="hero-container">
+        <div class="project-hero-grid">
+
+          <!-- Left Column: Intro & Stats -->
+          <div class="project-hero-content">
+            <span class="hero-eyebrow-purple">I am Shojib</span>
+            <h1 class="project-hero-title">
+              Software Developer<br>
+              <span class="title-gradient">+ UX Designer</span>
+            </h1>
+
+            <p class="project-hero-tagline">
+              Fresh ideas for your next project. Let's work together to create something amazing that will stand the
+              test
+              of time.
+            </p>
+
+            <!-- Stats Row -->
+            <div class="hero-stats-row">
+              <div class="stat-card">
+                <span class="stat-number">14+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">1.5K+</span>
+                <span class="stat-label">Happy Clients</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Circular Avatar with Neon Glow Ring -->
+          <div class="project-hero-avatar-wrap">
+            <div class="neon-avatar-halo">
+              <div class="neon-avatar-border">
+                <img src="assets/me.png" alt="Shojib - Software Developer & UX Designer" class="avatar-photo"
+                  loading="eager">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: My Quality Services (Matches reference image 2nd section) -->
+    <section class="services-glow-section" id="services">
+      <div class="content-container">
+        <div class="section-heading-center">
+          <span class="section-tag-purple">What I Offer</span>
+          <h2 class="section-title-glow">My Quality Services</h2>
+        </div>
+
+        <div class="services-cards-grid">
+          <!-- Service 1: Branding Design -->
+          <div class="service-glow-card">
+            <div class="service-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="service-title">Branding Design</h3>
+            <p class="service-desc">
+              Create visual identities that resonate with your target audience.
+            </p>
+            <div class="service-glow-line"></div>
+          </div>
+
+          <!-- Service 2: UI/UX Design -->
+          <div class="service-glow-card">
+            <div class="service-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-desc">
+              Design intuitive and engaging user experiences.
+            </p>
+            <div class="service-glow-line"></div>
+          </div>
+
+          <!-- Service 3: Web Design -->
+          <div class="service-glow-card">
+            <div class="service-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="service-title">Web Design</h3>
+            <p class="service-desc">
+              Build responsive and modern websites that convert.
+            </p>
+            <div class="service-glow-line"></div>
+          </div>
+
+          <!-- Service 4: App Design -->
+          <div class="service-glow-card">
+            <div class="service-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">App Design</h3>
+            <p class="service-desc">
+              Create seamless mobile experiences for your users.
+            </p>
+            <div class="service-glow-line"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: My Recent Works (Matches reference image 3rd section) -->
+    <section class="works-glow-section" id="works">
+      <div class="content-container">
+        <div class="section-heading-center">
+          <span class="section-tag-purple">Portfolio Showcase</span>
+          <h2 class="section-title-glow">My Recent Works</h2>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="works-filter-bar">
+          <button class="filter-tab active" data-filter="all">All Projects</button>
+          <button class="filter-tab" data-filter="web">Web Design</button>
+          <button class="filter-tab" data-filter="saas">SaaS &amp; Apps</button>
+          <button class="filter-tab" data-filter="3d">3D &amp; Creative</button>
+        </div>
+
+        <!-- Works Grid Matching Reference Picture -->
+        <div class="works-cards-grid">
+
+          <!-- Work Card 1: Digital Printing For Fabric & Clothes -->
+          <article class="work-showcase-card" data-category="web" data-title="Digital Printing for Fabric & Clothes"
+            data-category-label="Fashion E-Commerce & Print Platform" data-image="assets/project-fabric.jpg"
+            data-desc="High-performance modern streetwear apparel portal offering custom digital textile printing, dynamic size and fit customizers, and frictionless checkout."
+            data-tags="Next.js,WebGL Canvas,Tailwind CSS,Stripe API">
+            <div class="work-image-holder">
+              <img src="assets/project-fabric.jpg" alt="Digital Printing For Fabric & Clothes" class="work-image"
+                loading="lazy">
+              <div class="work-image-overlay">
+                <span class="work-open-badge">
+                  <span>View Case Study</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <span class="work-category">E-Commerce &amp; Custom Print</span>
+              <h3 class="work-title">Digital Printing for Fabric &amp; Clothes</h3>
+              <p class="work-snippet">Streetwear fashion portal with direct-to-garment digital print preview engine.</p>
+              <div class="work-tags-row">
+                <span class="mini-tag">Next.js</span>
+                <span class="mini-tag">Tailwind</span>
+                <span class="mini-tag">E-Commerce</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Card 2: DevPortal Cloud SaaS -->
+          <article class="work-showcase-card" data-category="saas" data-title="DevPortal Cloud API Platform"
+            data-category-label="Cloud Developer Portal & API Docs" data-image="assets/project-saas.jpg"
+            data-desc="Comprehensive developer platform with interactive API documentation, live endpoint testing console, sandbox code generation, and latency telemetry charts."
+            data-tags="React,TypeScript,GraphQL,Node.js,Chart.js">
+            <div class="work-image-holder">
+              <img src="assets/project-saas.jpg" alt="DevPortal Cloud Developer Documentation" class="work-image"
+                loading="lazy">
+              <div class="work-image-overlay">
+                <span class="work-open-badge">
+                  <span>View Case Study</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <span class="work-category">SaaS &amp; Developer Tooling</span>
+              <h3 class="work-title">DevPortal Cloud API Platform</h3>
+              <p class="work-snippet">Clean developer documentation hub with interactive API explorer and analytics.</p>
+              <div class="work-tags-row">
+                <span class="mini-tag">React</span>
+                <span class="mini-tag">TypeScript</span>
+                <span class="mini-tag">GraphQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Card 3: Aether Media Player -->
+          <article class="work-showcase-card" data-category="saas" data-title="Aether Cybernetic Media Player"
+            data-category-label="Audio / Video Workstation & UI/UX" data-image="assets/project-player.jpg"
+            data-desc="Futuristic cybernetic media player application featuring real-time audio waveform visualization, precise timecode playback, multitrack audio scrubbing, and dark translucent HUD controls."
+            data-tags="Web Audio API,Canvas 2D,Vue.js,Electron,Tailwind">
+            <div class="work-image-holder">
+              <img src="assets/project-player.jpg" alt="Aether Media Player Interface" class="work-image"
+                loading="lazy">
+              <div class="work-image-overlay">
+                <span class="work-open-badge">
+                  <span>View Case Study</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <span class="work-category">Creative Software &amp; Audio</span>
+              <h3 class="work-title">Aether Cybernetic Media Player</h3>
+              <p class="work-snippet">Dark glass media player with live audio waveform synthesis and scrubber HUD.</p>
+              <div class="work-tags-row">
+                <span class="mini-tag">Web Audio</span>
+                <span class="mini-tag">Canvas</span>
+                <span class="mini-tag">Vue.js</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Card 4: Lit Tech Clothing & 3D Web -->
+          <article class="work-showcase-card" data-category="3d" data-title="Lit Tech Neo-Future Clothing"
+            data-category-label="3D Liquid Chrome Web Experience" data-image="assets/project-chrome.jpg"
+            data-desc="State-of-the-art luxury techwear web application featuring real-time liquid chrome WebGL shaders, fluid metallic background ripples, and seamless mobile responsive experience."
+            data-tags="Three.js,GLSL Shaders,React Three Fiber,WebGL,Mobile UI">
+            <div class="work-image-holder">
+              <img src="assets/project-chrome.jpg" alt="Lit Tech Clothing 3D Web Experience" class="work-image"
+                loading="lazy">
+              <div class="work-image-overlay">
+                <span class="work-open-badge">
+                  <span>View Case Study</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <span class="work-category">3D WebGL &amp; Mobile Web</span>
+              <h3 class="work-title">Lit Tech Neo-Future Clothing</h3>
+              <p class="work-snippet">Liquid metallic interactive 3D web showcase with synchronized mobile views.</p>
+              <div class="work-tags-row">
+                <span class="mini-tag">Three.js</span>
+                <span class="mini-tag">WebGL</span>
+                <span class="mini-tag">GLSL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Card 5: Aura Outerwear (Bonus Featured) -->
+          <article class="work-showcase-card" data-category="3d" data-title="Aura Outerwear Techwear"
+            data-category-label="Editorial 3D E-Commerce" data-image="assets/project-jacket.jpg"
+            data-desc="Hyper-minimalist editorial apparel experience pairing high-resolution material textures with interactive 3D rotational views."
+            data-tags="Three.js,GSAP,Editorial Web,Shopify Plus">
+            <div class="work-image-holder">
+              <img src="assets/project-jacket.jpg" alt="Aura Outerwear Techwear" class="work-image" loading="lazy">
+              <div class="work-image-overlay">
+                <span class="work-open-badge">
+                  <span>View Case Study</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <span class="work-category">E-Commerce &amp; 3D</span>
+              <h3 class="work-title">Aura Outerwear Techwear</h3>
+              <p class="work-snippet">Immersive techwear product customizer with dynamic lighting.</p>
+              <div class="work-tags-row">
+                <span class="mini-tag">Three.js</span>
+                <span class="mini-tag">GSAP</span>
+                <span class="mini-tag">Shopify</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Card 6: Sonic Soundspace (Bonus Featured) -->
+          <article class="work-showcase-card" data-category="web" data-title="Sonic Soundspace Studio"
+            data-category-label="Web Audio Platform" data-image="assets/project-headphones.jpg"
+            data-desc="Spatial audio engineering application with real-time acoustics modeling and sleek hardware-inspired UI dials."
+            data-tags="Web Audio API,TypeScript,Svelte,Canvas">
+            <div class="work-image-holder">
+              <img src="assets/project-headphones.jpg" alt="Sonic Soundspace Studio" class="work-image" loading="lazy">
+              <div class="work-image-overlay">
+                <span class="work-open-badge">
+                  <span>View Case Study</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <span class="work-category">Web Audio API &amp; UI</span>
+              <h3 class="work-title">Sonic Soundspace Studio</h3>
+              <p class="work-snippet">Interactive sound exploration platform with spatial 3D audio controls.</p>
+              <div class="work-tags-row">
+                <span class="mini-tag">Web Audio</span>
+                <span class="mini-tag">Svelte</span>
+                <span class="mini-tag">Canvas</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: My Skills (Matches reference image 4th section) -->
+    <section class="skills-glow-section" id="skills">
+      <div class="content-container">
+        <div class="section-heading-center">
+          <span class="section-tag-purple">Technical Mastery</span>
+          <h2 class="section-title-glow">My Skills</h2>
+        </div>
+
+        <div class="skills-glow-grid">
+          <!-- Skill 1: React -->
+          <div class="skill-glow-card">
+            <div class="skill-card-top">
+              <div class="skill-icon-pill">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="skill-title">React</h3>
+            </div>
+            <div class="skill-meter-wrap">
+              <div class="skill-meter-bar">
+                <div class="skill-meter-fill" style="width: 90%;"></div>
+              </div>
+              <span class="skill-percentage">90%</span>
+            </div>
+          </div>
+
+          <!-- Skill 2: Tailwind -->
+          <div class="skill-glow-card">
+            <div class="skill-card-top">
+              <div class="skill-icon-pill">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <h3 class="skill-title">Tailwind</h3>
+            </div>
+            <div class="skill-meter-wrap">
+              <div class="skill-meter-bar">
+                <div class="skill-meter-fill" style="width: 85%;"></div>
+              </div>
+              <span class="skill-percentage">85%</span>
+            </div>
+          </div>
+
+          <!-- Skill 3: Figma -->
+          <div class="skill-glow-card">
+            <div class="skill-card-top">
+              <div class="skill-icon-pill">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <path d="M2 2l7.586 7.586"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+              </div>
+              <h3 class="skill-title">Figma</h3>
+            </div>
+            <div class="skill-meter-wrap">
+              <div class="skill-meter-bar">
+                <div class="skill-meter-fill" style="width: 80%;"></div>
+              </div>
+              <span class="skill-percentage">80%</span>
+            </div>
+          </div>
+
+          <!-- Skill 4: WordPress -->
+          <div class="skill-glow-card">
+            <div class="skill-card-top">
+              <div class="skill-icon-pill">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="skill-title">WordPress</h3>
+            </div>
+            <div class="skill-meter-wrap">
+              <div class="skill-meter-bar">
+                <div class="skill-meter-fill" style="width: 75%;"></div>
+              </div>
+              <span class="skill-percentage">75%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Extended Tech Stack Pills -->
+        <div class="extended-skills-row">
+          <span class="ext-skill-pill">TypeScript</span>
+          <span class="ext-skill-pill">Next.js</span>
+          <span class="ext-skill-pill">Three.js</span>
+          <span class="ext-skill-pill">WebGL</span>
+          <span class="ext-skill-pill">Node.js</span>
+          <span class="ext-skill-pill">PostgreSQL</span>
+          <span class="ext-skill-pill">GraphQL</span>
+          <span class="ext-skill-pill">Git / CI/CD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Contact Me CTA Banner (Matches reference image bottom section) -->
+    <section class="cta-banner-section" id="contact-banner">
+      <div class="content-container">
+        <div class="cta-glow-card">
+          <div class="cta-card-content">
+            <span class="section-tag-purple">Have a Project in Mind?</span>
+            <h2 class="cta-title">Let's Create Something Extraordinary Together</h2>
+            <p class="cta-subtext">
+              Whether you need full web development, UI/UX architecture, or interactive 3D web experiences, I am
+              available for new projects.
+            </p>
+          </div>
+          <div class="cta-card-actions">
+            <a href="contact.html" class="btn-pill-purple cta-btn">
+              <span>Contact Me</span>
+              <div class="arrow-circle purple">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer" id="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div>
+            <h3 class="footer-heading">Shojib — Software Developer &amp; UX Designer</h3>
+            <p class="footer-sub">Building high-performance digital products and memorable web experiences.</p>
+          </div>
+          <a href="contact.html" class="btn-pill-purple">
+            <span>Get In Touch</span>
+            <div class="arrow-circle purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Folioblox. Built with smooth 3D scroll canvas.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/shojib-80" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter / X</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Project Detail Modal -->
+  <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close project modal">&times;</button>
+      <div class="modal-image-wrapper">
+        <img src="" alt="" id="modal-image" class="modal-hero-img">
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-meta">
+          <span class="modal-category" id="modal-category"></span>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <div class="modal-actions">
+          <a href="contact.html" class="btn-pill-purple">
+            <span>Hire Me For Similar Project</span>
+            <div class="arrow-circle purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+          <button class="btn-pill-ghost" id="modal-dismiss-btn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=3.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>About Me — Shojib | Creative Developer &amp; UX Engineer</title>
+  <meta name="description"
+    content="Learn about Shojib's background, journey, engineering philosophy, and design mindset for building intuitive high-performance digital products.">
+
+  <!-- Modern Geometric Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=3.0">
+</head>
+
+<body class="page-about">
+
+  <!-- Minimal Loader -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-text" id="progress-text">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Fixed High-DPI Canvas for 3D Scroll Animation -->
+  <canvas id="scroll-canvas"></canvas>
+
+  <!-- Main Website Content Wrapper -->
+  <div class="site-wrapper">
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-container">
+        <a href="index.html" class="brand-logo" id="brand-logo">
+          Folioblox<span class="logo-dot">.</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item">Home</a>
+          <a href="about.html" class="nav-item active">About</a>
+          <a href="projects.html" class="nav-item">Projects</a>
+          <a href="contact.html" class="nav-item">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="contact.html" class="btn-pill-purple" id="header-cta-btn">
+            <span>Hire Me</span>
+            <div class="arrow-circle purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="about.html" class="mobile-nav-item active">About</a>
+        <a href="projects.html" class="mobile-nav-item">Projects</a>
+        <a href="contact.html" class="mobile-nav-item">Contact</a>
+      </div>
+      <a href="contact.html" class="btn-pill-purple mobile-cta">
+        <span>Hire Me</span>
+        <div class="arrow-circle purple">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- About Hero Introduction -->
+    <section class="page-intro-section" id="about-intro">
+      <div class="content-container">
+        <div class="page-intro-text">
+          <span class="section-tag-purple">The Story &amp; Vision</span>
+          <h1 class="page-intro-title">Behind the Code &amp; Design</h1>
+          <p class="page-intro-sub">
+            Passionate about bridging creative aesthetic direction with solid software architecture.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+
+        <!-- Top Story: "About Me" & Pixel Art Mascot -->
+        <div class="about-story-grid">
+          <div class="about-text-col">
+            <span class="section-tag-purple">Personal Journey</span>
+            <h2 class="about-heading">Hey, I'm Shojib</h2>
+            <div class="about-paragraphs">
+              <p>
+                I am a creative full-stack developer and UX designer with a relentless obsession for fluid micro-interactions,
+                pixel-perfect typography, and resilient frontend architectures.
+              </p>
+              <p>
+                Over the past several years, I've had the privilege of architecting products across e-commerce, developer tooling,
+                interactive 3D web platforms, and mobile-first applications. I believe software should not only execute with blazing speed
+                but evoke a genuine sense of delight.
+              </p>
+              <p>
+                When I step away from code, you'll find me analyzing cutting-edge UI trends, experimenting with WebGL shaders,
+                or exploring open-source design systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-mascot-col">
+            <div class="pixel-mascot-wrap">
+              <img src="assets/pixel-cat.svg" alt="Pixel Art Creative Mascot" class="pixel-cat-img" loading="eager">
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering Philosophy Grid -->
+        <div class="philosophy-block">
+          <h3 class="about-subheading">Core Engineering Principles</h3>
+          <div class="philosophy-grid">
+            <div class="philosophy-card">
+              <div class="philosophy-num">01</div>
+              <h4 class="philosophy-title">Speed as a Feature</h4>
+              <p class="philosophy-text">
+                Every millisecond matters. I optimize bundle sizes, leverage GPU-accelerated transforms, and ensure silky 60fps renders.
+              </p>
+            </div>
+            <div class="philosophy-card">
+              <div class="philosophy-num">02</div>
+              <h4 class="philosophy-title">Purposeful Motion</h4>
+              <p class="philosophy-text">
+                Animations shouldn't just be eye candy; they guide user attention, provide tactile feedback, and build spatial intuition.
+              </p>
+            </div>
+            <div class="philosophy-card">
+              <div class="philosophy-num">03</div>
+              <h4 class="philosophy-title">Clean Architecture</h4>
+              <p class="philosophy-text">
+                Maintainable, strongly typed codebases structured with clean boundaries, scalable design tokens, and modular components.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills & Technologies Subsection -->
+        <div class="about-skills-block">
+          <h3 class="about-subheading">Skills &amp; Technologies</h3>
+
+          <div class="skills-cards-grid">
+            <!-- Card 1 -->
+            <div class="skill-card">
+              <div class="skill-card-header">
+                <span class="skill-card-category">Frontend &amp; UI</span>
+                <h4 class="skill-card-title">Architecture</h4>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">JavaScript ES6+</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">Tailwind CSS</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="skill-card">
+              <div class="skill-card-header">
+                <span class="skill-card-category">Backend &amp; Cloud</span>
+                <h4 class="skill-card-title">Infrastructure</h4>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">GraphQL</span>
+                <span class="skill-tag">Supabase</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="skill-card">
+              <div class="skill-card-header">
+                <span class="skill-card-category">Creative &amp; 3D</span>
+                <h4 class="skill-card-title">Experiences</h4>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">Three.js</span>
+                <span class="skill-tag">WebGL</span>
+                <span class="skill-tag">HTML5 Canvas</span>
+                <span class="skill-tag">GSAP</span>
+                <span class="skill-tag">Figma UI/UX</span>
+                <span class="skill-tag">Design Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Timeline Subsection -->
+        <div class="about-experience-block">
+          <h3 class="about-subheading">Work Experience &amp; Milestones</h3>
+
+          <div class="experience-timeline">
+            <!-- Experience Item 1 -->
+            <div class="timeline-item">
+              <div class="timeline-badge-wrap">
+                <div class="timeline-year-node">2025</div>
+                <div class="timeline-stem"></div>
+              </div>
+              <div class="timeline-card">
+                <h4 class="timeline-role">Lead Frontend Engineer &amp; UX Architect</h4>
+                <span class="timeline-company">at Digital Systems Studio</span>
+                <p class="timeline-desc">
+                  Architecting interactive web applications, high-converting e-commerce experiences, and WebGL-driven showcase portals. Directing creative frontend sprints and design systems.
+                </p>
+              </div>
+            </div>
+
+            <!-- Experience Item 2 -->
+            <div class="timeline-item">
+              <div class="timeline-badge-wrap">
+                <div class="timeline-year-node">2023</div>
+                <div class="timeline-stem"></div>
+              </div>
+              <div class="timeline-card">
+                <h4 class="timeline-role">Full-Stack Web Developer</h4>
+                <span class="timeline-company">at Hyper Blox Agency</span>
+                <p class="timeline-desc">
+                  Developed end-to-end web platforms using React, Node.js, and modern headless CMS solutions. Improved core web vitals and interaction performance by 40%.
+                </p>
+              </div>
+            </div>
+
+            <!-- Experience Item 3 -->
+            <div class="timeline-item">
+              <div class="timeline-badge-wrap">
+                <div class="timeline-year-node">2021</div>
+              </div>
+              <div class="timeline-card">
+                <h4 class="timeline-role">UI/UX Designer &amp; Web Developer</h4>
+                <span class="timeline-company">at Freelance &amp; Creative Labs</span>
+                <p class="timeline-desc">
+                  Crafted custom visual identities, Figma interactive prototypes, and production websites for brands and tech startups globally.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner-section">
+      <div class="content-container">
+        <div class="cta-glow-card">
+          <div class="cta-card-content">
+            <span class="section-tag-purple">Explore What I've Built</span>
+            <h2 class="cta-title">Ready to See My Work in Action?</h2>
+            <p class="cta-subtext">
+              Browse through recent projects including e-commerce platforms, SaaS portals, and 3D web experiences.
+            </p>
+          </div>
+          <div class="cta-card-actions">
+            <a href="projects.html" class="btn-pill-purple cta-btn">
+              <span>View Projects</span>
+              <div class="arrow-circle purple">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer" id="footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div>
+            <h3 class="footer-heading">Shojib — Software Developer &amp; UX Designer</h3>
+            <p class="footer-sub">Building high-performance digital products and memorable web experiences.</p>
+          </div>
+          <a href="contact.html" class="btn-pill-purple">
+            <span>Get In Touch</span>
+            <div class="arrow-circle purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Folioblox. Built with smooth 3D scroll canvas.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/shojib-80" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter / X</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js?v=3.0"></script>
+</body>
+
+</html>
